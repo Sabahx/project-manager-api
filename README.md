@@ -1,107 +1,61 @@
 # 🗂️ Project Manager API
 
-A complete RESTful API system for managing Projects and Tasks using Django REST Framework with JWT authentication and role-based permissions.
+A Django REST Framework–based backend for a Task & Project Management System.
+
+This backend provides powerful features like project tracking, task management, task following, comment system, and change logs — all protected with JWT authentication.
 
 ---
 
-## ⚙️ How to Run
+## ✅ Features
 
-```bash
-# Install dependencies
-pip install -r requirements.txt
-
-# Apply migrations
-python manage.py migrate
-
-# Run the server
-python manage.py runserver
-```
+- User Registration & JWT Login
+- Project & Task CRUD operations
+- Task Following
+- Comment System
+- Notification System
+- Task Change Logs
+- Comprehensive Test Coverage
 
 ---
 
-## 🔐 JWT Authentication
+## 🧪 Testing
 
-### 1. Obtain Token:
-```http
-POST /api/token/
-{
-  "username": "your_username",
-  "password": "your_password"
-}
-```
-
-### 2. Refresh Token:
-```http
-POST /api/token/refresh/
-{
-  "refresh": "your_refresh_token"
-}
-```
-
----
-
-## 🧩 API Endpoints
-
-### 📁 Projects
-
-| Method | Endpoint                  | Description             | Access                 |
-|--------|---------------------------|-------------------------|------------------------|
-| GET    | `/api/projects/`          | List joined projects    | Authenticated members  |
-| POST   | `/api/projects/`          | Create a new project    | Any authenticated user |
-| PATCH  | `/api/projects/<id>/`     | Update a project        | Project manager only   |
-| DELETE | `/api/projects/<id>/`     | Delete a project        | Project manager only   |
-
-### ✅ Tasks
-
-| Method | Endpoint                  | Description               | Access                                 |
-|--------|---------------------------|---------------------------|----------------------------------------|
-| GET    | `/api/tasks/`             | List tasks                | Project members                        |
-| POST   | `/api/tasks/`             | Create a new task         | Project manager only                   |
-| PATCH  | `/api/tasks/<id>/`        | Update a task             | Project manager or assigned user       |
-| DELETE | `/api/tasks/<id>/`        | Delete a task             | Project manager only                   |
-
----
-
-## 🔍 Filtering and Search
-
-You can filter tasks by:
-
-- `status` (`todo`, `in_progress`, `done`)
-- `due_date`
-- `assigned_to`
-- `project`
-
-Example:
-
-```http
-GET /api/tasks/?status=todo&assigned_to=2&project=1&due_date=2025-06-01
-```
-
-And search by title or description:
-
-```http
-GET /api/tasks/?search=delivery
-```
-
----
-
-## 🧪 Run Tests
+All core functionalities are covered with unit and integration tests using Django’s test framework.  
+To run the tests:
 
 ```bash
 python manage.py test
-```
+✔️ Tests include:
 
----
+User registration and login
 
-## 🧰 Tech Stack
+Project and task creation
 
-- Django
-- Django REST Framework
-- Simple JWT
-- Django Filters
+Following/unfollowing tasks
 
----
+Comment permissions
 
-## 📬 Author
+Notification behavior
 
-[Sabahx on GitHub](https://github.com/Sabahx)
+Task update logging and access control
+
+🛠️ Tech Stack
+Backend: Django, Django REST Framework
+
+Auth: JWT (SimpleJWT)
+
+Database: SQLite (default, switchable)
+
+Tests: Built-in Django test client
+
+🚀 Getting Started
+bash
+Copy
+Edit
+git clone https://github.com/Sabahx/project-manager-api.git
+cd project-manager-api
+python -m venv venv
+source venv/bin/activate  # Windows: venv\Scripts\activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
