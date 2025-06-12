@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+    <h2>Welcome to your cute task manager ✨</h2>
+    <p>This is your central place to manage all projects and tasks with style!</p>
+
+    {% if user.is_authenticated %}
+        <p>👋 Hello, {{ user.username }}!</p>
+        <p><a href="{% url 'project_list' %}">View your Projects</a></p>
+    {% else %}
+        <p><a href="{% url 'login' %}">Login</a> or <a href="{% url 'register' %}">Register</a> to begin.</p>
+    {% endif %}
+{% endblock %}
