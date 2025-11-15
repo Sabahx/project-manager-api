@@ -1,49 +1,52 @@
 # Python
-__pycache__/
 *.py[cod]
-*.pyo
-*.pyd
+*$py.class
+*.so
+.Python
+__pycache__/
 *.pyc
-*.pdb
 
-# Virtual environment
+# Virtual Environment
 venv/
 env/
 ENV/
-.venv/
+.venv
 
 # Django
 *.log
-*.pot
-*.pyc
-local_settings.py
 db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+static/
 
-# VSCode
-.vscode/
-
-# macOS
-.DS_Store
-
-# Windows
-Thumbs.db
-ehthumbs.db
-Desktop.ini
-
-# Pytest
-.cache/
-
-# Migrations
-*/migrations/__pycache__/
-*/migrations/*.pyc
-*/migrations/*.pyo
-*/migrations/*.pyd
-*.sqlite3
-
-# Token / Secrets
+# Environment Variables
 .env
-.env.*
+.env.local
+.env.*.local
 
-# Test artifacts
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.coverage
 htmlcov/
-coverage.xml
+.pytest_cache/
+.tox/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+
+# Migrations (optional - uncomment if you want to ignore migrations)
+# */migrations/*.py
+# !*/migrations/__init__.py
